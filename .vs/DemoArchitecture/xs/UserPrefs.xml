@@ -1,0 +1,33 @@
+﻿<Properties StartupConfiguration="{333B9665-D9CA-444B-8DA3-CFCFE58B825A}|Default">
+  <MonoDevelop.Ide.ItemProperties.Entities FirstBuild="True" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Business FirstBuild="True" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.Core FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.DataAccess FirstBuild="True" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="DataAccess/EntityFramework/DemoContext.cs">
+    <Files>
+      <File FileName="Entities/User.cs" Line="10" Column="25" />
+      <File FileName="Entities/OperationClaim.cs" Line="7" Column="1" />
+      <File FileName="Entities/UserOperationClaim.cs" Line="8" Column="34" />
+      <File FileName="DataAccess/EntityFramework/DemoContext.cs" Line="16" Column="60" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="DemoArchitecture" expanded="True">
+            <Node name="DataAccess" expanded="True" selected="True">
+              <Node name="EntityFramework" expanded="True" />
+            </Node>
+            <Node name="Entities" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.WebApi PreferredExecutionTarget="/Applications/Google Chrome.app" FirstBuild="True" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+</Properties>
