@@ -6,7 +6,7 @@ namespace Business
 {
 	public interface IAuthService
 	{
-		IResult Register(RegisterAuthDto authDto, int imgSize);
+		IResult Register(RegisterAuthDto authDto);
 		string Login(LoginAuthDto loginAuthDto);
 	}
 }

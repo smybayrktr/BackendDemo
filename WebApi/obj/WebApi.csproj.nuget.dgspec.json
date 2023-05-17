@@ -49,6 +49,10 @@
               "target": "Package",
               "version": "[6.5.0, )"
             },
+            "Autofac.Extras.DynamicProxy": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "FluentValidation": {
               "target": "Package",
               "version": "[11.5.1, )"
@@ -108,6 +112,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Castle.Core": {
+              "target": "Package",
+              "version": "[5.1.0, )"
+            },
             "FluentValidation": {
               "target": "Package",
               "version": "[11.5.1, )"
@@ -236,6 +244,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

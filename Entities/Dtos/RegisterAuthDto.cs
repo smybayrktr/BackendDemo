@@ -1,4 +1,6 @@
 ﻿using System;
+using Microsoft.AspNetCore.Http;
+
 namespace Entities.Dtos
 {
 	public class RegisterAuthDto
@@ -9,7 +11,7 @@ namespace Entities.Dtos
 
         public string Password { get; set; }
 
-		public string ImageUrl { get; set; }
-    }
+		public IFormFile Image { get; set; }
+	}
 }
 

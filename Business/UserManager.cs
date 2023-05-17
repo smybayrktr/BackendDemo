@@ -17,7 +17,17 @@ namespace Business
 
         public void Add(RegisterAuthDto authDto)
         {
-            byte[] passwordHash, passwordSalt;
+
+            var ext = authDto.Image.FileName.Substring(authDto.Image.FileName.LastIndexOf('.')).ToLower();
+            string fileName = Guid.NewGuid().ToString();
+
+            var path = "./Content/Images/" + fileName;
+            using (var stream = System.IO.File.Create(path))
+            {
+                authDto.Image.CopyTo(stream);
+            }
+
+                byte[] passwordHash, passwordSalt;
             HashingHelper.CreatePassword(authDto.Password, out passwordHash ,out passwordSalt);
 
             User user = new User();
@@ -26,7 +36,7 @@ namespace Business
             user.Name = authDto.Name;
             user.PasswordHash = passwordHash;
             user.PasswordSalt = passwordSalt;
-            user.ImageUrl = authDto.ImageUrl;
+            user.ImageUrl = fileName;
 
             _userDal.Add(user);
         }

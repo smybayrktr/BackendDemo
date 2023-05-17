@@ -1,10 +1,14 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Validation;
 using Core.CrossCuttingConcerns.Validation;
+using Core.Utilities.Business;
 using Core.Utilities.Hashing;
 using Core.Utilities.Results;
 using Entities.Dtos;
 using FluentValidation.Results;
+using Microsoft.AspNetCore.Http;
 
 namespace Business
 {
@@ -28,52 +32,54 @@ namespace Business
             return "Fail";
         }
 
-        public IResult Register(RegisterAuthDto authDto, int imgSize)
+        [ValidationAspect(typeof(UserValidator))]
+        public IResult Register(RegisterAuthDto authDto)
         {
-            imgSize = 0; 
-            UserValidator userValidator = new UserValidator();
-            ValidationTool.Validate(userValidator, authDto);
+            IResult result = BusinessRules.Run
+                (CheckIfEmailExists(authDto.EMail),
+                CheckIfImageSize(authDto.Image.Length),
+                CheckIfImageExtension(authDto.Image.FileName));
 
+            if (result != null)
+            {
+                return result;
+
+            }
             
-            bool isExist = CheckIfEmailExists(authDto.EMail);
-            if (isExist)
-            {
-               
-                var isImageSize = CheckIfImageSize(imgSize);
-                if (isImageSize)
-                {
-                    _userService.Add(authDto);
-                    return new SuccessResult("İşlem Başarılı");
-                }
-                else
-                {
-                    return new ErrorResult("Yüklenen resim boyutu max 1mb olmalı");
-                }
-            }
-            else
-            {
-                return new ErrorResult("İşlem Başarısız");
-            }
-
+            _userService.Add(authDto);
+            return new SuccessResult("İşlem Başarılı");
         }
 
-        bool CheckIfEmailExists(string email)
+        private IResult CheckIfEmailExists(string email)
         {
             var list = _userService.GetByEmail(email);
             if (list != null)
             {
-                return false;
+                return new ErrorResult("Bu mail adresi zaten mevcut");
             }
-            return true;
+            return new SuccessResult("Kayıt Başarılı");
         }
 
-        bool CheckIfImageSize(int imgSize)
+        private IResult CheckIfImageSize(long imgSize)
         {
-            if (imgSize>1)
+            var imgMbSize = Convert.ToDecimal(imgSize * 0.000001);
+
+            if (imgMbSize > 2)
             {
-                return false;
+                return new ErrorResult("Img size küçük olmalı") ;
             }
-            return true;
+            return new SuccessResult("Başarılı");
+        }
+
+        private IResult CheckIfImageExtension(string fileName)
+        {
+            var extension = fileName.Substring(fileName.LastIndexOf('.')).ToLower();
+            List<string> AllowFileExtensions = new List<string> { ".jpg", ".jpeg", ".png", ".gif" };
+            if (!AllowFileExtensions.Contains(extension))
+            {
+                return new ErrorResult("Image Format Dışı");
+            }
+            return new SuccessResult("İşlem Başarılı");
         }
     }
 }

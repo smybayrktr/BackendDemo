@@ -14,6 +14,10 @@
     <None Remove="CrossCuttingConcerns\" />
     <None Remove="CrossCuttingConcerns\Validation\" />
     <None Remove="Utilities\Results\" />
+    <None Remove="Utilities\Business\" />
+    <None Remove="Interceptors\" />
+    <None Remove="Aspects\" />
+    <None Remove="Aspects\Validation\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataAccess\" />
@@ -23,9 +27,14 @@
     <Folder Include="CrossCuttingConcerns\" />
     <Folder Include="CrossCuttingConcerns\Validation\" />
     <Folder Include="Utilities\Results\" />
+    <Folder Include="Utilities\Business\" />
+    <Folder Include="Interceptors\" />
+    <Folder Include="Aspects\" />
+    <Folder Include="Aspects\Validation\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.16" />
     <PackageReference Include="FluentValidation" Version="11.5.1" />
+    <PackageReference Include="Castle.Core" Version="5.1.0" />
   </ItemGroup>
 </Project>

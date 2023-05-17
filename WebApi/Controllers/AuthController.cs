@@ -20,9 +20,9 @@ namespace WebApi.Controllers
         }
 
         [HttpPost("Register")]
-        public IActionResult Register(RegisterAuthDto authDto)
+        public IActionResult Register([FromForm]RegisterAuthDto authDto)
         {
-            _authService.Register(authDto,2);
+            _authService.Register(authDto);
             return Ok();
         }
 

@@ -1,5 +1,8 @@
 ﻿using System;
 using Autofac;
+using Autofac.Extras.DynamicProxy;
+using Castle.DynamicProxy;
+using Core.Interceptors;
 using DataAccess;
 using DataAccess.EntityFramework;
 
@@ -21,6 +24,16 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<EfUserOperationClaimDal>().As<IUserOperationClaimDal>();
 
             builder.RegisterType<AuthManager>().As<IAuthService>();
+
+
+            //Aspect kullanabilmemiz için yazarız.
+            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+
+            builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
+                .EnableInterfaceInterceptors(new ProxyGenerationOptions() //Autofac.Extras.DynamicProxy ile gelir
+                {
+                    Selector = new AspectInterceptorSelector()
+                }).SingleInstance();
         }
     }
 }
