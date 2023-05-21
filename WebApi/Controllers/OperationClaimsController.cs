@@ -13,18 +13,66 @@ namespace WebApi.Controllers
     [Route("api/[controller]")]
     public class OperationClaimsController : Controller
     {
-        private readonly IOperationClaimService _operationClaim;
+        private readonly IOperationClaimService _operationClaimService;
 
-        public OperationClaimsController(IOperationClaimService operationClaim)
+        public OperationClaimsController(IOperationClaimService operationClaimService)
         {
-            _operationClaim = operationClaim;
+            _operationClaimService = operationClaimService;
         }
 
         [HttpPost("Add")]
         public IActionResult Add(OperationClaim operationClaim)
         {
-            _operationClaim.Add(operationClaim);
-            return Ok();
+            var result = _operationClaimService.Add(operationClaim);
+            if (result.Success)
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
+
+        [HttpPut("Update")]
+        public IActionResult Update(OperationClaim operationClaim)
+        {
+           var result = _operationClaimService.Update(operationClaim);
+            if (result.Success)
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
+
+        [HttpDelete("Delete")]
+        public IActionResult Delete(OperationClaim operationClaim)
+        {
+            var result = _operationClaimService.Delete(operationClaim);
+            if (result.Success)
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
+
+        [HttpGet("GetAll")]
+        public IActionResult GetAll()
+        {
+            var result = _operationClaimService.GetAll();
+            if (result.Success)
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
+
+        [HttpGet("Get")]
+        public IActionResult Get(int Id)
+        {
+            var result = _operationClaimService.GetById(Id);
+            if (result.Success)
+            {
+                return Ok();
+            }
+            return BadRequest();
         }
     }
 }

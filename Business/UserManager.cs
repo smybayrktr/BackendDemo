@@ -1,5 +1,9 @@
 ﻿using System;
+using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Validation;
 using Core.Utilities.Hashing;
+using Core.Utilities.Results;
 using DataAccess;
 using Entities;
 using Entities.Dtos;
@@ -9,36 +13,35 @@ namespace Business
     public class UserManager : IUserService
     {
         private readonly IUserDal _userDal;
+        private readonly IFileService _fileService;
 
-        public UserManager(IUserDal userDal)
+
+        public UserManager(IUserDal userDal, IFileService fileService)
         {
             _userDal = userDal;
+            _fileService = fileService;
         }
 
-        public void Add(RegisterAuthDto authDto)
+        public IResult Add(RegisterAuthDto authDto)
         {
+            var user = CreateUser(authDto);
+            _userDal.Add(user);
+            return  new SuccessResult("Başarılı");
+        }
 
-            var ext = authDto.Image.FileName.Substring(authDto.Image.FileName.LastIndexOf('.')).ToLower();
-            string fileName = Guid.NewGuid().ToString();
-
-            var path = "./Content/Images/" + fileName;
-            using (var stream = System.IO.File.Create(path))
-            {
-                authDto.Image.CopyTo(stream);
-            }
-
-                byte[] passwordHash, passwordSalt;
-            HashingHelper.CreatePassword(authDto.Password, out passwordHash ,out passwordSalt);
-
+        private User CreateUser(RegisterAuthDto registerAuthDto)
+        {
+            byte[] passwordHash, passwordSalt;
+            HashingHelper.CreatePassword(registerAuthDto.Password, out passwordHash, out passwordSalt);
             User user = new User();
             user.Id = 0;
-            user.EMail = authDto.EMail;
-            user.Name = authDto.Name;
+            user.EMail = registerAuthDto.EMail;
+            user.Name = registerAuthDto.Name;
             user.PasswordHash = passwordHash;
             user.PasswordSalt = passwordSalt;
-            user.ImageUrl = fileName;
+            user.ImageUrl = _fileService.FileSaveToServer(registerAuthDto.Image, "./Content/Images/");
+            return user;
 
-            _userDal.Add(user);
         }
 
         public User GetByEmail(string email)
@@ -46,9 +49,48 @@ namespace Business
             return _userDal.Get(p=> p.EMail == email);
         }
 
-        public List<User> GetList()
+        public IDataResult<List<User>> GetList()
         {
-            return _userDal.GetAll();
+            return new SuccessDataResult<List<User>>(_userDal.GetAll(),"Listelendi.");
+        }
+
+
+        [ValidationAspect(typeof(UserValidator))]
+        public IResult Update(User user)
+        {
+            _userDal.Update(user);
+            return new SuccessResult(Messages.Updated);
+        }
+
+        public IResult Delete(User user)
+        {
+            _userDal.Delete(user);
+            return new SuccessResult("Silindi");
+        }
+
+
+        public IDataResult<User> GetById(int id)
+        {
+            return new SuccessDataResult<User>(_userDal.Get(p=>p.Id == id));
+        }
+
+        [ValidationAspect(typeof(UserChangePasswordValidator))]
+        public IResult ChangePassword(UserChangePasswordDto userChangePasswordDto)
+        {
+            var user = _userDal.Get(p=>p.Id == userChangePasswordDto.UserId);
+            bool result = HashingHelper.VerifyPasswordHash(userChangePasswordDto.CurrentPassword,
+                user.PasswordHash, user.PasswordSalt);
+            if (!result)
+            {
+                return new ErrorResult(Messages.WrongCurrentPassword);
+            }
+            byte[] passwordHash, passwordSalt;
+            HashingHelper.CreatePassword(userChangePasswordDto.NewPassword, out passwordHash, out passwordSalt);
+
+            user.PasswordHash = passwordHash;
+            user.PasswordSalt = passwordSalt;
+            _userDal.Update(user);
+            return new SuccessResult(Messages.PasswordChanged);
         }
     }
 }

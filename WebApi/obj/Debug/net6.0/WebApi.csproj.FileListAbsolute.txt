@@ -7,6 +7,9 @@
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/bin/Debug/net6.0/WebApi.pdb
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/bin/Debug/net6.0/Autofac.dll
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/bin/Debug/net6.0/Autofac.Extensions.DependencyInjection.dll
+/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/bin/Debug/net6.0/Autofac.Extras.DynamicProxy.dll
+/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/bin/Debug/net6.0/Castle.Core.dll
+/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/bin/Debug/net6.0/FluentValidation.dll
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/bin/Debug/net6.0/Microsoft.Data.SqlClient.dll
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.dll
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -74,6 +77,3 @@
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/obj/Debug/net6.0/WebApi.pdb
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/obj/Debug/net6.0/WebApi.genruntimeconfig.cache
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/obj/Debug/net6.0/ref/WebApi.dll
-/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/bin/Debug/net6.0/FluentValidation.dll
-/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/bin/Debug/net6.0/Autofac.Extras.DynamicProxy.dll
-/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/bin/Debug/net6.0/Castle.Core.dll

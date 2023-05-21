@@ -32,7 +32,7 @@ namespace Business
             return "Fail";
         }
 
-        [ValidationAspect(typeof(UserValidator))]
+        [ValidationAspect(typeof(AuthValidator))]
         public IResult Register(RegisterAuthDto authDto)
         {
             IResult result = BusinessRules.Run

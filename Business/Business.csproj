@@ -15,12 +15,14 @@
     <None Remove="DependencyResolvers\AutofacBusinessModule\" />
     <None Remove="ValidationRules\" />
     <None Remove="ValidationRules\FluentValidation\" />
+    <None Remove="Constants\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DependencyResolvers\" />
     <Folder Include="DependencyResolvers\Autofac\" />
     <Folder Include="ValidationRules\" />
     <Folder Include="ValidationRules\FluentValidation\" />
+    <Folder Include="Constants\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.5.0" />

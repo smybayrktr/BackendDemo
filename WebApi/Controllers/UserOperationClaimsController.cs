@@ -20,14 +20,62 @@ namespace WebApi.Controllers
             _userOperationClaimService = userOperationClaimService;
         }
 
-        [HttpPost]
-        public IActionResult Add(UserOperationClaim userOperationClaimService)
+        
+        [HttpPost("Add")]
+        public IActionResult Add(UserOperationClaim userOperationClaim)
         {
-            _userOperationClaimService.Add(userOperationClaimService);
-            return Ok();
+            var result = _userOperationClaimService.Add(userOperationClaim);
+            if (result.Success)
+            {
+                return Ok();
+            }
+            return BadRequest();
         }
 
-        
+        [HttpPut("Update")]
+        public IActionResult Update(UserOperationClaim userOperationClaim)
+        {
+            var result = _userOperationClaimService.Update(userOperationClaim);
+            if (result.Success)
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
+
+        [HttpDelete("Delete")]
+        public IActionResult Delete(UserOperationClaim userOperationClaim)
+        {
+            var result = _userOperationClaimService.Delete(userOperationClaim);
+            if (result.Success)
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
+
+        [HttpGet("GetAll")]
+        public IActionResult GetAll()
+        {
+            var result = _userOperationClaimService.GetAll();
+            if (result.Success)
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
+
+        [HttpGet("Get")]
+        public IActionResult Get(int Id)
+        {
+            var result = _userOperationClaimService.GetById(Id);
+            if (result.Success)
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
+
     }
 }
 

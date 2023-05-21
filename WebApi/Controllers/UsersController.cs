@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Business;
+using Core.Utilities.Results;
 using Entities;
 using Entities.Dtos;
 using Microsoft.AspNetCore.Mvc;
@@ -22,11 +23,65 @@ namespace WebApi.Controllers
         }
 
        
-        [HttpGet("List")]
+        [HttpGet("GetAll")]
         public IActionResult GetAll()
         {
-            return Ok(_userService.GetList());
-           
+           var result = _userService.GetList();
+            if (result != null)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result.Message);
+        }
+
+
+        [HttpGet("GetById")]
+        public IActionResult GetById(int userId)
+        {
+            var result = _userService.GetById(userId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result.Message);
+        }
+
+        [HttpPut("Update")]
+        public IActionResult Update(User user)
+        {
+            var result = _userService.Update(user);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result.Message);
+        }
+
+        [HttpDelete("Delete")]
+        public IActionResult Delete(User user)
+        {
+            var result = _userService.Delete(user);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result.Message);
+        }
+
+        [HttpPost("ChangePassword")]
+        public IActionResult ChangePassword(UserChangePasswordDto userChangePasswordDto)
+        {
+            var result = _userService.ChangePassword(userChangePasswordDto);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result.Message);
         }
 
     }

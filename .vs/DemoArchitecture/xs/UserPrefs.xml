@@ -1,36 +1,44 @@
 ﻿<Properties StartupConfiguration="{333B9665-D9CA-444B-8DA3-CFCFE58B825A}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="WebApi/Controllers/AuthController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/Core/DataAccess/EntityFramework/EfEntityRepositoryBase.cs" relfile="Core/DataAccess/EntityFramework/EfEntityRepositoryBase.cs" line="51" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="WebApi/Program.cs">
     <Files>
-      <File FileName="WebApi/Controllers/AuthController.cs" Line="25" Column="1" />
-      <File FileName="Business/AuthManager.cs" Line="49" Column="1" />
-      <File FileName="Business/UserManager.cs" Line="34" Column="1" />
-      <File FileName="WebApi/Program.cs" Line="39" Column="1" />
+      <File FileName="WebApi/Program.cs" Line="32" Column="53" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="DemoArchitecture" expanded="True">
-            <Node name="Business" expanded="True" />
-            <Node name="WebApi" expanded="True">
+            <Node name="Business" expanded="True">
+              <Node name="Constants" expanded="True" />
+              <Node name="ValidationRules" expanded="True">
+                <Node name="FluentValidation" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="Core" expanded="True">
+              <Node name="Utilities" expanded="True">
+                <Node name="Results" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="Entities" expanded="True">
+              <Node name="Dtos" expanded="True" />
+            </Node>
+            <Node name="WebApi" expanded="True" selected="True">
               <Node name="Content" expanded="True">
                 <Node name="Images" expanded="True" />
               </Node>
-              <Node name="Controllers" expanded="True">
-                <Node name="AuthController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.WebApi PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/Core/DataAccess/EntityFramework/EfEntityRepositoryBase.cs" relfile="Core/DataAccess/EntityFramework/EfEntityRepositoryBase.cs" line="51" column="1" />
-    </BreakpointStore>
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
