@@ -25,7 +25,8 @@ namespace Business.Constants
 
         public static string UserNotExist = "Seçtiğiniz Yetki Bilgisi Bulunamadı.";
 
-        
+        public static string AuthorizationDenied = "Yetkiniz Yok.";
+
     }
 }
 

@@ -1,3 +1,10 @@
+/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/obj/Debug/net6.0/WebApi.csproj.AssemblyReference.cache
+/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/obj/Debug/net6.0/WebApi.GeneratedMSBuildEditorConfig.editorconfig
+/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/obj/Debug/net6.0/WebApi.AssemblyInfoInputs.cache
+/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/obj/Debug/net6.0/WebApi.AssemblyInfo.cs
+/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/obj/Debug/net6.0/WebApi.csproj.CoreCompileInputs.cache
+/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/obj/Debug/net6.0/WebApi.MvcApplicationPartsAssemblyInfo.cs
+/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/obj/Debug/net6.0/WebApi.MvcApplicationPartsAssemblyInfo.cache
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/bin/Debug/net6.0/appsettings.Development.json
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/bin/Debug/net6.0/appsettings.json
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/bin/Debug/net6.0/WebApi
@@ -10,6 +17,7 @@
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/bin/Debug/net6.0/Autofac.Extras.DynamicProxy.dll
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/bin/Debug/net6.0/Castle.Core.dll
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/bin/Debug/net6.0/FluentValidation.dll
+/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/bin/Debug/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/bin/Debug/net6.0/Microsoft.Data.SqlClient.dll
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.dll
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -56,13 +64,6 @@
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/bin/Debug/net6.0/Entities.pdb
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/bin/Debug/net6.0/Core.pdb
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/bin/Debug/net6.0/DataAccess.pdb
-/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/obj/Debug/net6.0/WebApi.csproj.AssemblyReference.cache
-/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/obj/Debug/net6.0/WebApi.GeneratedMSBuildEditorConfig.editorconfig
-/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/obj/Debug/net6.0/WebApi.AssemblyInfoInputs.cache
-/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/obj/Debug/net6.0/WebApi.AssemblyInfo.cs
-/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/obj/Debug/net6.0/WebApi.csproj.CoreCompileInputs.cache
-/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/obj/Debug/net6.0/WebApi.MvcApplicationPartsAssemblyInfo.cs
-/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/obj/Debug/net6.0/WebApi.MvcApplicationPartsAssemblyInfo.cache
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/obj/Debug/net6.0/staticwebassets/msbuild.WebApi.Microsoft.AspNetCore.StaticWebAssets.props
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/obj/Debug/net6.0/staticwebassets/msbuild.build.WebApi.props
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/obj/Debug/net6.0/staticwebassets/msbuild.buildMultiTargeting.WebApi.props
@@ -77,3 +78,4 @@
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/obj/Debug/net6.0/WebApi.pdb
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/obj/Debug/net6.0/WebApi.genruntimeconfig.cache
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/obj/Debug/net6.0/ref/WebApi.dll
+/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/bin/Debug/net6.0/Newtonsoft.Json.dll

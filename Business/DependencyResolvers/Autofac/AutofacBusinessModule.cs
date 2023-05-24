@@ -3,6 +3,7 @@ using Autofac;
 using Autofac.Extras.DynamicProxy;
 using Castle.DynamicProxy;
 using Core.Interceptors;
+using Core.Utilities.Security.JWT;
 using DataAccess;
 using DataAccess.EntityFramework;
 
@@ -24,6 +25,8 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<EfUserOperationClaimDal>().As<IUserOperationClaimDal>();
 
             builder.RegisterType<AuthManager>().As<IAuthService>();
+
+            builder.RegisterType<TokenHandler>().As<ITokenHandler>();
 
 
             //Aspect kullanabilmemiz için yazarız.

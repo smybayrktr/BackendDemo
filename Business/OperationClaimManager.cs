@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
+using Business.BusinessAspects;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Validation;
@@ -51,6 +52,8 @@ namespace Business
             return new SuccessResult(Messages.Deleted);
         }
 
+
+        [SecuredAspect()]
         public IDataResult<List<OperationClaim>> GetAll()
         {
             var result = _operationClaimDal.GetAll();

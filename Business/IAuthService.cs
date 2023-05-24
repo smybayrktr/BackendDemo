@@ -1,5 +1,6 @@
 ﻿using System;
 using Core.Utilities.Results;
+using Core.Utilities.Security.JWT;
 using Entities.Dtos;
 
 namespace Business
@@ -7,7 +8,7 @@ namespace Business
 	public interface IAuthService
 	{
 		IResult Register(RegisterAuthDto authDto);
-		string Login(LoginAuthDto loginAuthDto);
+		IDataResult<Token> Login(LoginAuthDto loginAuthDto);
 	}
 }
 

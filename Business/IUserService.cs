@@ -19,6 +19,8 @@ namespace Business
 
 		User GetByEmail(string email);
 
+		List<OperationClaim> GetUserOperationClaims(int userId);
+
 		IDataResult<User> GetById(int id);
 	}
 }

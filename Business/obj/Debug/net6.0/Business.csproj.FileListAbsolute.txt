@@ -1,8 +1,3 @@
-/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/Business/obj/Debug/net6.0/Business.csproj.AssemblyReference.cache
-/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/Business/obj/Debug/net6.0/Business.GeneratedMSBuildEditorConfig.editorconfig
-/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/Business/obj/Debug/net6.0/Business.AssemblyInfoInputs.cache
-/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/Business/obj/Debug/net6.0/Business.AssemblyInfo.cs
-/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/Business/obj/Debug/net6.0/Business.csproj.CoreCompileInputs.cache
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/Business/bin/Debug/net6.0/Business.deps.json
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/Business/bin/Debug/net6.0/Business.dll
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/Business/bin/Debug/net6.0/Business.pdb
@@ -12,6 +7,11 @@
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/Business/bin/Debug/net6.0/Entities.pdb
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/Business/bin/Debug/net6.0/DataAccess.pdb
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/Business/bin/Debug/net6.0/Core.pdb
+/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/Business/obj/Debug/net6.0/Business.csproj.AssemblyReference.cache
+/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/Business/obj/Debug/net6.0/Business.GeneratedMSBuildEditorConfig.editorconfig
+/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/Business/obj/Debug/net6.0/Business.AssemblyInfoInputs.cache
+/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/Business/obj/Debug/net6.0/Business.AssemblyInfo.cs
+/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/Business/obj/Debug/net6.0/Business.csproj.CoreCompileInputs.cache
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/Business/obj/Debug/net6.0/Business.csproj.CopyComplete
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/Business/obj/Debug/net6.0/Business.dll
 /Users/smybayrktr/Desktop/Udemy/DemoArchitecture/Business/obj/Debug/net6.0/refint/Business.dll

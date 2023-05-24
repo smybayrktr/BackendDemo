@@ -6,30 +6,36 @@ using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Business;
 using Core.Utilities.Hashing;
 using Core.Utilities.Results;
+using Core.Utilities.Security.JWT;
+using Entities;
 using Entities.Dtos;
 using FluentValidation.Results;
-using Microsoft.AspNetCore.Http;
 
 namespace Business
 {
     public class AuthManager : IAuthService
     {
         private readonly IUserService _userService;
+        private readonly ITokenHandler _tokenHandler;
 
-        public AuthManager(IUserService userService)
+        public AuthManager(IUserService userService, ITokenHandler tokenHandler)
         {
             _userService = userService;
+            _tokenHandler = tokenHandler;
         }
 
-        public string Login(LoginAuthDto loginAuthDto)
+        public IDataResult<Token> Login(LoginAuthDto loginAuthDto)
         {
             var user = _userService.GetByEmail(loginAuthDto.Email);
             var result = HashingHelper.VerifyPasswordHash(loginAuthDto.Password, user.PasswordHash, user.PasswordSalt);
+            List<OperationClaim> operationClaims = _userService.GetUserOperationClaims(user.Id);
             if (result)
             {
-                return "Success";
+                Token token = new Token();
+                token = _tokenHandler.CreateToken(user, operationClaims);
+                return new SuccessDataResult<Token>(token);
             }
-            return "Fail";
+            return new ErrorDataResult<Token>("Hatalı kullanıcı bilgileri");
         }
 
         [ValidationAspect(typeof(AuthValidator))]

@@ -1,6 +1,8 @@
 ﻿using System;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Caching;
+using Core.Aspects.Transaction;
 using Core.Aspects.Validation;
 using Core.Utilities.Hashing;
 using Core.Utilities.Results;
@@ -22,6 +24,7 @@ namespace Business
             _fileService = fileService;
         }
 
+        [CacheRemoveAspect("IUserService.GetList")]
         public IResult Add(RegisterAuthDto authDto)
         {
             var user = CreateUser(authDto);
@@ -49,6 +52,7 @@ namespace Business
             return _userDal.Get(p=> p.EMail == email);
         }
 
+        [CacheAspect(30)]
         public IDataResult<List<User>> GetList()
         {
             return new SuccessDataResult<List<User>>(_userDal.GetAll(),"Listelendi.");
@@ -56,6 +60,7 @@ namespace Business
 
 
         [ValidationAspect(typeof(UserValidator))]
+        [TransactionAspect()]
         public IResult Update(User user)
         {
             _userDal.Update(user);
@@ -91,6 +96,11 @@ namespace Business
             user.PasswordSalt = passwordSalt;
             _userDal.Update(user);
             return new SuccessResult(Messages.PasswordChanged);
+        }
+
+        public List<OperationClaim> GetUserOperationClaims(int userId)
+        {
+            return _userDal.GetUserOperationClaims(userId);
         }
     }
 }

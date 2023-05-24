@@ -18,6 +18,16 @@
     <None Remove="Interceptors\" />
     <None Remove="Aspects\" />
     <None Remove="Aspects\Validation\" />
+    <None Remove="Utilities\Security\" />
+    <None Remove="Utilities\Security\JWT\" />
+    <None Remove="Extensions\" />
+    <None Remove="Aspects\Transaction\" />
+    <None Remove="Utilities\IoC\" />
+    <None Remove="CrossCuttingConcerns\Caching\" />
+    <None Remove="CrossCuttingConcerns\Caching\Microsoft\" />
+    <None Remove="Aspects\Caching\" />
+    <None Remove="DependecyResolvers\" />
+    <None Remove="Aspects\Performance\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataAccess\" />
@@ -31,10 +41,26 @@
     <Folder Include="Interceptors\" />
     <Folder Include="Aspects\" />
     <Folder Include="Aspects\Validation\" />
+    <Folder Include="Utilities\Security\" />
+    <Folder Include="Utilities\Security\JWT\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Aspects\Transaction\" />
+    <Folder Include="Utilities\IoC\" />
+    <Folder Include="CrossCuttingConcerns\Caching\" />
+    <Folder Include="CrossCuttingConcerns\Caching\Microsoft\" />
+    <Folder Include="Aspects\Caching\" />
+    <Folder Include="DependecyResolvers\" />
+    <Folder Include="Aspects\Performance\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.16" />
     <PackageReference Include="FluentValidation" Version="11.5.1" />
     <PackageReference Include="Castle.Core" Version="5.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.16" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entities\Entities.csproj" />
   </ItemGroup>
 </Project>

@@ -22,15 +22,24 @@ namespace WebApi.Controllers
         [HttpPost("Register")]
         public IActionResult Register([FromForm]RegisterAuthDto authDto)
         {
-            _authService.Register(authDto);
-            return Ok();
+            var result = _authService.Register(authDto);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
         }
 
         [HttpPost("Login")]
+        
         public IActionResult Login(LoginAuthDto loginAuthDto)
         {
             var result = _authService.Login(loginAuthDto);
-            return Ok(result);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
         }
 
     }
