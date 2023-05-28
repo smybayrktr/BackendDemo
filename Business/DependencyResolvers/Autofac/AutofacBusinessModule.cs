@@ -24,6 +24,10 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<UserOperationClaimManager>().As<IUserOperationClaimService>();
             builder.RegisterType<EfUserOperationClaimDal>().As<IUserOperationClaimDal>();
 
+            builder.RegisterType<EmailParameterManager>().As<IEmailParameterService>();
+            builder.RegisterType<EfEmailParameterDal>().As<IEmailParameterDal>();
+
+
             builder.RegisterType<AuthManager>().As<IAuthService>();
 
             builder.RegisterType<TokenHandler>().As<ITokenHandler>();

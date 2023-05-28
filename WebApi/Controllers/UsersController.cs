@@ -13,7 +13,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
-    public class UsersController : Controller
+    [ApiController]
+    public class UsersController : ControllerBase
     {
         private readonly IUserService _userService;
 
@@ -22,68 +23,105 @@ namespace WebApi.Controllers
             _userService = userService;
         }
 
-       
-        [HttpGet("GetAll")]
-        public IActionResult GetAll()
+        [HttpGet("[action]")]
+        public async Task<IActionResult> GetList()
         {
-           var result = _userService.GetList();
-            if (result != null)
-            {
-                return Ok(result);
-            }
-
-            return BadRequest(result.Message);
-        }
-
-
-        [HttpGet("GetById")]
-        public IActionResult GetById(int userId)
-        {
-            var result = _userService.GetById(userId);
+            var result = await _userService.GetList();
             if (result.Success)
             {
                 return Ok(result);
             }
-
             return BadRequest(result.Message);
         }
 
-        [HttpPut("Update")]
-        public IActionResult Update(User user)
+
+        [HttpGet("[action]/{id}")]
+        public async Task<IActionResult> GetById(int id)
         {
-            var result = _userService.Update(user);
+            var result = await _userService.GetById(id);
             if (result.Success)
             {
                 return Ok(result);
             }
-
             return BadRequest(result.Message);
         }
 
-        [HttpDelete("Delete")]
-        public IActionResult Delete(User user)
+        [HttpPost("[action]")]
+        public async Task<IActionResult> Update(User user)
         {
-            var result = _userService.Delete(user);
+            var result = await _userService.Update(user);
             if (result.Success)
             {
                 return Ok(result);
             }
-
             return BadRequest(result.Message);
         }
 
-        [HttpPost("ChangePassword")]
-        public IActionResult ChangePassword(UserChangePasswordDto userChangePasswordDto)
+        [HttpPost("[action]")]
+        public async Task<IActionResult> Delete(User user)
         {
-            var result = _userService.ChangePassword(userChangePasswordDto);
+            var result = await _userService.Delete(user);
             if (result.Success)
             {
                 return Ok(result);
             }
-
             return BadRequest(result.Message);
         }
 
+        [HttpGet("[action]/{email}")]
+        public async Task<IActionResult> SendConfirmUserMail(string email)
+        {
+            var result = await _userService.SendConfirmUserMail(email);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+        }
+
+        [HttpGet("[action]/{email}")]
+        public async Task<IActionResult> SendForgotPasswordMail(string email)
+        {
+            var result = await _userService.SendForgotPasswordMail(email);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+        }
+
+        [HttpGet("[action]/{confirmValue}")]
+        public async Task<IActionResult> ConfirmUser(string confirmValue)
+        {
+            var result = await _userService.ConfirmUser(confirmValue);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+        }
+
+        [HttpPost("[action]")]
+        public async Task<IActionResult> CreateANewPassword(CreateANewPasswordDto createANewPasswordDto)
+        {
+            var result = await _userService.CreateANewPassword(createANewPasswordDto);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+        }
+
+        [HttpPost("[action]")]
+        public async Task<IActionResult> ChangePassword(UserChangePasswordDto userChangePasswordDto)
+        {
+            var result = await _userService.ChangePassword(userChangePasswordDto);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+        }
     }
 }
 

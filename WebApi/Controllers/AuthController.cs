@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Business;
+using Core.Utilities.Security.JWT;
 using Entities.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,19 +11,22 @@ using Microsoft.AspNetCore.Mvc;
 namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
-    public class AuthController : Controller
+    [ApiController]
+    public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;
+        private readonly ITokenHandler _tokenHadler;
 
-        public AuthController(IAuthService authService)
+        public AuthController(IAuthService authService, ITokenHandler tokenHadler)
         {
             _authService = authService;
+            _tokenHadler = tokenHadler;
         }
 
-        [HttpPost("Register")]
-        public IActionResult Register([FromForm]RegisterAuthDto authDto)
+        [HttpPost("[action]")]
+        public async Task<IActionResult> Register([FromForm] RegisterAuthDto authDto)
         {
-            var result = _authService.Register(authDto);
+            var result = await _authService.Register(authDto);
             if (result.Success)
             {
                 return Ok(result);
@@ -30,18 +34,16 @@ namespace WebApi.Controllers
             return BadRequest(result.Message);
         }
 
-        [HttpPost("Login")]
-        
-        public IActionResult Login(LoginAuthDto loginAuthDto)
+        [HttpPost("[action]")]
+        public async Task<IActionResult> Login(LoginAuthDto authDto)
         {
-            var result = _authService.Login(loginAuthDto);
+            var result = await _authService.Login(authDto);
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result.Message);
         }
-
     }
 }
 

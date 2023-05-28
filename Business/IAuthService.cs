@@ -5,10 +5,10 @@ using Entities.Dtos;
 
 namespace Business
 {
-	public interface IAuthService
-	{
-		IResult Register(RegisterAuthDto authDto);
-		IDataResult<Token> Login(LoginAuthDto loginAuthDto);
-	}
+    public interface IAuthService
+    {
+        Task<IResult> Register(RegisterAuthDto registerDto);
+        Task<IDataResult<Token>> Login(LoginAuthDto loginDto);
+    }
 }
 

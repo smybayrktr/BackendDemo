@@ -12,7 +12,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
-    public class OperationClaimsController : Controller
+    [ApiController]
+    public class OperationClaimsController : ControllerBase
     {
         private readonly IOperationClaimService _operationClaimService;
 
@@ -21,60 +22,62 @@ namespace WebApi.Controllers
             _operationClaimService = operationClaimService;
         }
 
-        [HttpPost("Add")]
-        public IActionResult Add(OperationClaim operationClaim)
+        [HttpPost("[action]")]
+        public async Task<IActionResult> Add(OperationClaim operationClaim)
         {
-            var result = _operationClaimService.Add(operationClaim);
+            var result = await _operationClaimService.Add(operationClaim);
             if (result.Success)
             {
-                return Ok();
+                return Ok(result);
             }
-            return BadRequest();
+            return BadRequest(result.Message);
         }
 
-        [HttpPut("Update")]
-        public IActionResult Update(OperationClaim operationClaim)
+        [HttpPost("[action]")]
+        public async Task<IActionResult> Update(OperationClaim operationClaim)
         {
-           var result = _operationClaimService.Update(operationClaim);
+            var result = await _operationClaimService.Update(operationClaim);
             if (result.Success)
             {
-                return Ok();
+                return Ok(result);
             }
-            return BadRequest();
+            return BadRequest(result.Message);
         }
 
-        [HttpDelete("Delete")]
-        public IActionResult Delete(OperationClaim operationClaim)
+        [HttpPost("[action]")]
+        public async Task<IActionResult> Delete(OperationClaim operationClaim)
         {
-            var result = _operationClaimService.Delete(operationClaim);
+            var result = await _operationClaimService.Delete(operationClaim);
             if (result.Success)
             {
-                return Ok();
+                return Ok(result);
             }
-            return BadRequest();
+            return BadRequest(result.Message);
         }
 
-        [HttpGet("GetAll")]
-        public IActionResult GetAll()
+        [HttpGet("[action]")]
+        //[Authorize(Roles = "GetList")]
+        public async Task<IActionResult> GetList()
         {
-            var result = _operationClaimService.GetAll();
+            var result = await _operationClaimService.GetList();
             if (result.Success)
             {
-                return Ok();
+                return Ok(result);
             }
-            return BadRequest();
+            return BadRequest(result.Message);
         }
 
-        [HttpGet("Get")]
-        public IActionResult Get(int Id)
+        [HttpGet("[action]/{id}")]
+        public async Task<IActionResult> GetById(int id)
         {
-            var result = _operationClaimService.GetById(Id);
+            var result = await _operationClaimService.GetById(id);
             if (result.Success)
             {
-                return Ok();
+                return Ok(result);
             }
-            return BadRequest();
+            return BadRequest(result.Message);
         }
+
     }
 }
 

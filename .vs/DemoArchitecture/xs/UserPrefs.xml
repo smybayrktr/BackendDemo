@@ -1,41 +1,49 @@
-﻿<Properties StartupConfiguration="{333B9665-D9CA-444B-8DA3-CFCFE58B825A}|Default">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/Core/DataAccess/EntityFramework/EfEntityRepositoryBase.cs" relfile="Core/DataAccess/EntityFramework/EfEntityRepositoryBase.cs" line="51" column="1" />
-      <Breakpoint file="/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/Controllers/AuthController.cs" relfile="WebApi/Controllers/AuthController.cs" line="33" column="1" />
-      <Breakpoint file="/Users/smybayrktr/Desktop/Udemy/DemoArchitecture/WebApi/Controllers/AuthController.cs" relfile="WebApi/Controllers/AuthController.cs" line="36" column="1" />
-    </BreakpointStore>
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+﻿<Properties StartupConfiguration="{7C30ADF1-BE99-4ECC-B1B5-64C5C2ED5AFC}|Default">
+  <MonoDevelop.Ide.ItemProperties.WebUI FirstBuild="True" PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.ItemProperties.WebApi PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Business/UserManager.cs">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Business/Constants/Messages.cs">
     <Files>
-      <File FileName="Business/UserManager.cs" Line="27" Column="41" />
-      <File FileName="Core/Aspects/Caching/CacheAspect.cs" Line="1" Column="1" />
-      <File FileName="WebApi/Program.cs" Line="56" Column="14" />
-      <File FileName="Core/DependecyResolvers/CoreModule.cs" Line="7" Column="34" />
-      <File FileName="Core/DataAccess/IEntityRepository.cs" Line="16" Column="1" />
-      <File FileName="Core/Aspects/Caching/CacheRemoveAspect.cs" Line="20" Column="74" />
+      <File FileName="Business/IUserService.cs" Line="16" Column="42" />
+      <File FileName="Entities/Dtos/EmptyClass.cs" Line="6" Column="18" />
+      <File FileName="Business/UserManager.cs" Line="164" Column="74" />
+      <File FileName="Entities/User.cs" Line="16" Column="59" />
+      <File FileName="Entities/OperationClaim.cs" Line="1" Column="1" />
+      <File FileName="Business/Constants/Messages.cs" Line="35" Column="80" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="DemoArchitecture" expanded="True">
+          <Node name="DemoArchitecture" expanded="True" selected="True">
             <Node name="Business" expanded="True">
-              <Node name="UserManager.cs" selected="True" />
+              <Node name="Constants" expanded="True" />
+              <Node name="ValidationRules" expanded="True">
+                <Node name="FluentValidation" expanded="True" />
+              </Node>
             </Node>
             <Node name="Core" expanded="True">
               <Node name="Aspects" expanded="True">
                 <Node name="Caching" expanded="True" />
               </Node>
+              <Node name="DataAccess" expanded="True">
+                <Node name="EntityFramework" expanded="True" />
+              </Node>
             </Node>
-            <Node name="DataAccess" expanded="True" />
-            <Node name="WebApi" expanded="True" />
+            <Node name="DataAccess" expanded="True">
+              <Node name="EntityFramework" expanded="True" />
+            </Node>
+            <Node name="Entities" expanded="True">
+              <Node name="Dtos" expanded="True" />
+            </Node>
+            <Node name="WebApi" expanded="True">
+              <Node name="Controllers" expanded="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.WebApi PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

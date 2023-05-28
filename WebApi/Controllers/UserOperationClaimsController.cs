@@ -11,7 +11,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
-    public class UserOperationClaimsController : Controller
+    [ApiController]
+    public class UserOperationClaimsController : ControllerBase
     {
         private readonly IUserOperationClaimService _userOperationClaimService;
 
@@ -20,62 +21,60 @@ namespace WebApi.Controllers
             _userOperationClaimService = userOperationClaimService;
         }
 
-        
-        [HttpPost("Add")]
-        public IActionResult Add(UserOperationClaim userOperationClaim)
+        [HttpPost("[action]")]
+        public async Task<IActionResult> Add(UserOperationClaim userOperationClaim)
         {
-            var result = _userOperationClaimService.Add(userOperationClaim);
+            var result = await _userOperationClaimService.Add(userOperationClaim);
             if (result.Success)
             {
-                return Ok();
+                return Ok(result);
             }
-            return BadRequest();
+            return BadRequest(result.Message);
         }
 
-        [HttpPut("Update")]
-        public IActionResult Update(UserOperationClaim userOperationClaim)
+        [HttpPost("[action]")]
+        public async Task<IActionResult> Update(UserOperationClaim userOperationClaim)
         {
-            var result = _userOperationClaimService.Update(userOperationClaim);
+            var result = await _userOperationClaimService.Update(userOperationClaim);
             if (result.Success)
             {
-                return Ok();
+                return Ok(result);
             }
-            return BadRequest();
+            return BadRequest(result.Message);
         }
 
-        [HttpDelete("Delete")]
-        public IActionResult Delete(UserOperationClaim userOperationClaim)
+        [HttpPost("[action]")]
+        public async Task<IActionResult> Delete(UserOperationClaim userOperationClaim)
         {
-            var result = _userOperationClaimService.Delete(userOperationClaim);
+            var result = await _userOperationClaimService.Delete(userOperationClaim);
             if (result.Success)
             {
-                return Ok();
+                return Ok(result);
             }
-            return BadRequest();
+            return BadRequest(result.Message);
         }
 
-        [HttpGet("GetAll")]
-        public IActionResult GetAll()
+        [HttpGet("[action]")]
+        public async Task<IActionResult> GetList()
         {
-            var result = _userOperationClaimService.GetAll();
+            var result = await _userOperationClaimService.GetList();
             if (result.Success)
             {
-                return Ok();
+                return Ok(result);
             }
-            return BadRequest();
+            return BadRequest(result.Message);
         }
 
-        [HttpGet("Get")]
-        public IActionResult Get(int Id)
+        [HttpGet("[action]/{id}")]
+        public async Task<IActionResult> GetById(int id)
         {
-            var result = _userOperationClaimService.GetById(Id);
+            var result = await _userOperationClaimService.GetById(id);
             if (result.Success)
             {
-                return Ok();
+                return Ok(result);
             }
-            return BadRequest();
+            return BadRequest(result.Message);
         }
-
     }
 }
 

@@ -17,6 +17,8 @@
     <None Remove="ValidationRules\FluentValidation\" />
     <None Remove="Constants\" />
     <None Remove="BusinessAspects\" />
+    <None Remove="File\" />
+    <None Remove="BackgroundServices\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DependencyResolvers\" />
@@ -25,6 +27,8 @@
     <Folder Include="ValidationRules\FluentValidation\" />
     <Folder Include="Constants\" />
     <Folder Include="BusinessAspects\" />
+    <Folder Include="File\" />
+    <Folder Include="BackgroundServices\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.5.0" />

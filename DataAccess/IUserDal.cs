@@ -4,10 +4,9 @@ using Entities;
 
 namespace DataAccess
 {
-	public interface IUserDal: IEntityRepository<User>
-	{
-
-        List<OperationClaim> GetUserOperationClaims(int userId);
+    public interface IUserDal : IEntityRepository<User>
+    {
+        Task<List<OperationClaim>> GetUserOperatinonClaims(int userId);
     }
 }
 

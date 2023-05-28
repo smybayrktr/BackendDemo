@@ -24,68 +24,75 @@ namespace Business
             _tokenHandler = tokenHandler;
         }
 
-        public IDataResult<Token> Login(LoginAuthDto loginAuthDto)
+        public async Task<IDataResult<Token>> Login(LoginAuthDto loginDto)
         {
-            var user = _userService.GetByEmail(loginAuthDto.Email);
-            var result = HashingHelper.VerifyPasswordHash(loginAuthDto.Password, user.PasswordHash, user.PasswordSalt);
-            List<OperationClaim> operationClaims = _userService.GetUserOperationClaims(user.Id);
+            var user = await _userService.GetByEmail(loginDto.Email);
+            if (user == null)
+                return new ErrorDataResult<Token>("Kullanıcı maili sistemde bulunamadı!");
+
+            //if (!user.IsConfirm)
+            //    return new ErrorDataResult<Token>("Kullanıcı maili onaylanmamış!");
+
+            var result = HashingHelper.VerifyPasswordHash(loginDto.Password, user.PasswordHash, user.PasswordSalt);
+            List<OperationClaim> operationClaims = await _userService.GetUserOperationClaims(user.Id);
+
             if (result)
             {
-                Token token = new Token();
+                Token token = new();
                 token = _tokenHandler.CreateToken(user, operationClaims);
                 return new SuccessDataResult<Token>(token);
             }
-            return new ErrorDataResult<Token>("Hatalı kullanıcı bilgileri");
+            return new ErrorDataResult<Token>("Kullanıcı maili ya da şifre bilgisi yanlış");
         }
 
         [ValidationAspect(typeof(AuthValidator))]
-        public IResult Register(RegisterAuthDto authDto)
+        public async Task<IResult> Register(RegisterAuthDto registerDto)
         {
-            IResult result = BusinessRules.Run
-                (CheckIfEmailExists(authDto.EMail),
-                CheckIfImageSize(authDto.Image.Length),
-                CheckIfImageExtension(authDto.Image.FileName));
+            IResult result = BusinessRules.Run(
+                await CheckIfEmailExists(registerDto.EMail),
+                CheckIfImageExtesionsAllow(registerDto.Image.FileName),
+                CheckIfImageSizeIsLessThanOneMb(registerDto.Image.Length)
+                );
 
             if (result != null)
             {
                 return result;
-
             }
-            
-            _userService.Add(authDto);
-            return new SuccessResult("İşlem Başarılı");
+
+            await _userService.Add(registerDto);
+            return new SuccessResult("Kullanıcı kaydı başarıyla tamamlandı");
         }
 
-        private IResult CheckIfEmailExists(string email)
+        private async Task<IResult> CheckIfEmailExists(string email)
         {
-            var list = _userService.GetByEmail(email);
+            var list = await _userService.GetByEmail(email);
             if (list != null)
             {
-                return new ErrorResult("Bu mail adresi zaten mevcut");
+                return new ErrorResult("Bu mail adresi daha önce kullanılmış");
             }
-            return new SuccessResult("Kayıt Başarılı");
+            return new SuccessResult();
         }
 
-        private IResult CheckIfImageSize(long imgSize)
+        private IResult CheckIfImageSizeIsLessThanOneMb(long imgSize)
         {
-            var imgMbSize = Convert.ToDecimal(imgSize * 0.000001);
-
-            if (imgMbSize > 2)
+            decimal imgMbSize = Convert.ToDecimal(imgSize * 0.000001);
+            if (imgMbSize > 1)
             {
-                return new ErrorResult("Img size küçük olmalı") ;
+                return new ErrorResult("Yüklediğiniz resmi boyutu en fazla 1mb olmalıdır");
             }
-            return new SuccessResult("Başarılı");
+            return new SuccessResult();
         }
 
-        private IResult CheckIfImageExtension(string fileName)
+        private IResult CheckIfImageExtesionsAllow(string fileName)
         {
-            var extension = fileName.Substring(fileName.LastIndexOf('.')).ToLower();
-            List<string> AllowFileExtensions = new List<string> { ".jpg", ".jpeg", ".png", ".gif" };
+            var ext = fileName.Substring(fileName.LastIndexOf('.'));
+            var extension = ext.ToLower();
+            List<string> AllowFileExtensions = new List<string> { ".jpg", ".jpeg", ".gif", ".png" };
             if (!AllowFileExtensions.Contains(extension))
             {
-                return new ErrorResult("Image Format Dışı");
+                return new ErrorResult("Eklediğiniz resim .jpg, .jpeg, .gif, .png türlerinden biri olmalıdır!");
             }
-            return new SuccessResult("İşlem Başarılı");
+            return new SuccessResult();
         }
     }
 }
