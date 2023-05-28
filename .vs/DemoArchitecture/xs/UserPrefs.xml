@@ -1,49 +1,58 @@
 ﻿<Properties StartupConfiguration="{7C30ADF1-BE99-4ECC-B1B5-64C5C2ED5AFC}|Default">
-  <MonoDevelop.Ide.ItemProperties.WebUI FirstBuild="True" PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.ItemProperties.WebApi PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Business/Constants/Messages.cs">
-    <Files>
-      <File FileName="Business/IUserService.cs" Line="16" Column="42" />
-      <File FileName="Entities/Dtos/EmptyClass.cs" Line="6" Column="18" />
-      <File FileName="Business/UserManager.cs" Line="164" Column="74" />
-      <File FileName="Entities/User.cs" Line="16" Column="59" />
-      <File FileName="Entities/OperationClaim.cs" Line="1" Column="1" />
-      <File FileName="Business/Constants/Messages.cs" Line="35" Column="80" />
-    </Files>
+  <MonoDevelop.Ide.ItemProperties.WebUI PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="DemoArchitecture" expanded="True" selected="True">
+          <Node name="DemoArchitecture" expanded="True">
             <Node name="Business" expanded="True">
+              <Node name="BackgroundServices" expanded="True" />
+              <Node name="BusinessAspects" expanded="True" />
               <Node name="Constants" expanded="True" />
+              <Node name="DependencyResolvers" expanded="True" />
+              <Node name="File" expanded="True" />
               <Node name="ValidationRules" expanded="True">
                 <Node name="FluentValidation" expanded="True" />
               </Node>
             </Node>
             <Node name="Core" expanded="True">
-              <Node name="Aspects" expanded="True">
-                <Node name="Caching" expanded="True" />
-              </Node>
-              <Node name="DataAccess" expanded="True">
-                <Node name="EntityFramework" expanded="True" />
-              </Node>
+              <Node name="Utilities" expanded="True" />
             </Node>
             <Node name="DataAccess" expanded="True">
               <Node name="EntityFramework" expanded="True" />
             </Node>
-            <Node name="Entities" expanded="True">
-              <Node name="Dtos" expanded="True" />
-            </Node>
             <Node name="WebApi" expanded="True">
               <Node name="Controllers" expanded="True" />
+              <Node name="Program.cs" selected="True" />
+            </Node>
+            <Node name="WebUI" expanded="True">
+              <Node name="Content" expanded="True">
+                <Node name="Images" expanded="True" />
+              </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Auth" expanded="True" />
+              </Node>
+              <Node name="wwwroot" expanded="True">
+                <Node name="lib" expanded="True">
+                  <Node name="bootstrap" expanded="True">
+                    <Node name="dist" expanded="True">
+                      <Node name="css" expanded="True" />
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
